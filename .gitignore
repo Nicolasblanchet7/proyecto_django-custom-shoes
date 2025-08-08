@@ -1,1 +1,21 @@
-env/\n__pycache__/\n*.pyc\n*.sqlite3\n*.log
+
+# Entorno virtual
+env/
+venv/
+
+# Archivos de Python compilados
+__pycache__/
+*.pyc
+
+# Archivos temporales
+*.log
+
+# Bases de datos SQLite
+*.sqlite3
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
