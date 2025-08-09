@@ -1,4 +1,3 @@
-
 from pathlib import Path
 import os
 
@@ -25,7 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Tu app
-    'designer',
+    'custom_shoes',
 ]
 
 # Middleware
@@ -40,7 +39,7 @@ MIDDLEWARE = [
 ]
 
 # URL raíz del proyecto
-ROOT_URLCONF = 'custom_shoes.urls'
+ROOT_URLCONF = 'mi_proyecto.urls'
 
 # Templates
 TEMPLATES = [
@@ -61,7 +60,7 @@ TEMPLATES = [
 ]
 
 # WSGI
-WSGI_APPLICATION = 'custom_shoes.wsgi.application'
+WSGI_APPLICATION = 'mi_proyecto.wsgi.application'
 
 # Base de datos (usamos SQLite para desarrollo)
 DATABASES = {
