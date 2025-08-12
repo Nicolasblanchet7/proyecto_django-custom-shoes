@@ -1,13 +1,9 @@
+from django.http import HttpResponse
 
-from django.shortcuts import render, redirect
-from .forms import CustomizationForm
+def saludo(request):
+    return HttpResponse("""
+        <h1>Bienvenido a mi página</h1>
+        <p>Esta es la presentación oficial del sitio web que estoy desarrollando con Django.</p>
+        <p>Aquí vas a encontrar información, recursos y mucho más.</p>
+    """)
 
-def editor(request):
-    if request.method == 'POST':
-        form = CustomizationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('editor')
-    else:
-        form = CustomizationForm()
-    return render(request, 'designer/editor.html', {'form': form})
