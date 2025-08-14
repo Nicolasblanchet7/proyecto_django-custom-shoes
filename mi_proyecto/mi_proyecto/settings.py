@@ -15,16 +15,13 @@ ALLOWED_HOSTS = []
 
 # Apps instaladas
 INSTALLED_APPS = [
-    # Apps de Django por defecto
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    # Tu app
-    'custom_shoes',
+    'custom_shoes',  # ← Aquí agregas tu aplicación
 ]
 
 # Middleware
@@ -45,13 +42,12 @@ ROOT_URLCONF = 'mi_proyecto.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # Buscamos plantillas dentro de apps
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],  # Carpeta de templates personalizada
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',  # importante para admin y auth
+                'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -62,7 +58,7 @@ TEMPLATES = [
 # WSGI
 WSGI_APPLICATION = 'mi_proyecto.wsgi.application'
 
-# Base de datos (usamos SQLite para desarrollo)
+# Base de datos (SQLite para desarrollo)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -70,29 +66,29 @@ DATABASES = {
     }
 }
 
-# Validadores de contraseña (puedes dejar vacíos para desarrollo)
+# Validadores de contraseña (desactivados en desarrollo)
 AUTH_PASSWORD_VALIDATORS = []
 
 # Configuración regional
 LANGUAGE_CODE = 'es-ar'
-
 TIME_ZONE = 'America/Argentina/Buenos_Aires'
-
 USE_I18N = True
-
 USE_TZ = True
 
-# Archivos estáticos (CSS, JS, imágenes)
+# ========================
+# Archivos estáticos (Paso 8)
+# ========================
 STATIC_URL = '/static/'
-
-# Carpeta para subir archivos (imágenes, media)
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-# Archivos estáticos adicionales
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    BASE_DIR / 'static',  # Carpeta donde pondrás CSS, JS e imágenes
 ]
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # Para producción (recoge todos los estáticos)
+
+# ========================
+# Archivos multimedia (imágenes subidas por usuarios)
+# ========================
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Campo automático para IDs
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

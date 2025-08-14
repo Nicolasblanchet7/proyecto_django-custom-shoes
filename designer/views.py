@@ -7,3 +7,7 @@ def saludo(request):
         <p>Aquí vas a encontrar información, recursos y mucho más.</p>
     """)
 
+from django.shortcuts import render
+
+def inicio(request):
+    return render(request, 'inicio.html')
